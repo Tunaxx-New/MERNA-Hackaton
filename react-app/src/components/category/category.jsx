@@ -8,8 +8,9 @@ const Category = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:3001')
+        axios.get('http://localhost:3001/menu')
             .then(res => setData(res.data))
+            .then(res => console.log(data))
     }, [])
 
     return (
@@ -19,9 +20,9 @@ const Category = () => {
                     data.filter(d => d.category === category).map(dd => (
                         <Link to={`${dd._id}`} key={dd._id}>
                             <div className={s.item}>
-                                <span><img src={dd.imageUrl} alt={dd.name} />
-                                </span>
-                                <span className={s.name}>{dd.name}</span>
+                                <td><img src={dd.imageUrl} alt={dd.name} /></td>
+                                <td className={s.name}>{dd.name}</td>
+                                <td className={s.price}>{dd.price} тг</td>
                             </div>
                         </Link>
                     ))

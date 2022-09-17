@@ -5,11 +5,12 @@ const passport = require('passport');
 const session = require('express-session');
 
 const User = require('./Schemas/Users.model');
+const LocalStrategy = require('passport-local').Strategy;
 
 
 const app = express();
 
-passport.use(User.createStrategy());
+passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
@@ -35,6 +36,13 @@ mongoose.connect("mongodb://127.0.0.1:27017/ZebraCoffee");
 
 app.get('/', (req, res) => {
 
+});
+
+app.post('/logout', function(req, res, next){
+    req.logout(function(err) {
+        if (err) { return next(err); }
+        res.send(err);
+    });
 });
 
 require('./routes/auth')(app)

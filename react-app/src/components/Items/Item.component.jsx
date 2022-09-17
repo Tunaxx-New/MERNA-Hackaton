@@ -16,9 +16,14 @@ const Items = () => {
 
     return (
         <div className={s.container}>
-            <img src={data.imageUrl} alt={data.name} />
-            <h1>{data.name}</h1>
-            <p>{data.description}</p>
+            <td>
+                <img src={data.imageUrl} alt={data.name} />
+                <h1 className={s.price}>{data.price} тг.</h1>
+            </td>
+            <td className={s.name}>
+                <h1>{data.name}</h1>
+                <p>{data.description}</p>
+            </td>
         </div>
     )
 }
