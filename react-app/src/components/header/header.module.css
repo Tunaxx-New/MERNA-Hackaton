@@ -1,0 +1,99 @@
+header {
+    height: 500px;
+}
+
+.content {
+    -webkit-transform: translate(-50%, -500px);
+    -moz-transform: translate(-50%, -500px);
+    -ms-transform: translate(-50%, -500px);
+    -o-transform: translate(-50%, -500px);
+    transform: translate(-50%, -500px);
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    color: #fff;
+    border: 5px solid #fff;
+    padding: .5em 3em;
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: black 0 5px 4px;
+    text-shadow: black 0 5px 4px;
+    z-index: 2;
+}
+
+.back-shadow {
+    position: absolute;
+    top: 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+    width: 100%;
+    height: 500px;
+}
+
+.back-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.navbar {
+    text-align: center;
+}
+
+.link {
+    font-size: 24px;
+    font-weight: lighter;
+    background-color: var(--dark);
+    padding: 32px;
+    box-shadow: inset 0 0 10px 1px rgba(0, 0, 0, 0.5);
+}
+
+a:link, a:active {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+a:visited, a:hover {
+    color: var(--activated);
+    text-decoration: none;
+}
+
+.link:hover {
+    animation-name: up;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.link:active {
+    animation-name: down;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes up {
+    from {
+        transform: translateY(0px);
+        box-shadow: black 0 0;
+        box-shadow: inset 0 0 10px 1px rgba(0, 0, 0, 0.5);
+    }
+    to {
+        transform: translateY(-8px);
+        box-shadow: black 0 8px;
+        box-shadow: inset 0 0 10px 1px rgba(0, 0, 0, 0);
+    }
+}
+
+@keyframes down {
+    from {
+        transform: translateY(-8px);
+        box-shadow: black 0 8px;
+        box-shadow: inset 0 0 10px 1px rgba(0, 0, 0, 0);
+        color: var(--secondary);
+    }
+    to {
+        transform: translateY(8px);
+        box-shadow: black 0 -8px;
+        box-shadow: inset 0 0 10px 10px rgba(0, 0, 0, 1);
+        color: var(--black);
+    }
+}

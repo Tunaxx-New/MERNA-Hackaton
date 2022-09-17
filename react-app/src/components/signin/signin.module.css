@@ -1,0 +1,109 @@
+.container {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+
+.m-8 {
+	margin: 8px;
+}
+
+form {
+	margin: 64px;
+}
+
+h2, form label {
+	font-weight: bold;
+	font-size: x-large;
+	color: var(--dark);
+}
+
+input {
+	width: 10%;
+	height: 32px;
+	color: var(--dark);
+	background-color: var(--white);
+	font-size: 16px;
+	padding: 8px;
+}
+
+.container img {
+	width: 500px;
+	height: 500px;
+}
+
+.inputContainer {
+	align-items: center;
+	text-align: center;
+}
+
+.inputContainer label {
+	font-size: 24px;
+}
+
+.inputContainer input {
+	width: 50%;
+	height: 40px;
+	border: 1px;
+	border-radius: 15px;
+	-webkit-box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.2);
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	-ms-border-radius: 15px;
+	-o-border-radius: 15px;
+	margin: 8px;
+}
+
+.button {
+	margin: 8px;
+	margin-top: 15px;
+	width: 130px;
+	height: 50px;
+	background-color: var(--secondary);
+	font-size: 18px;
+	font-weight: 500;
+	border: none;
+	border-radius: 10px;
+	color: white;
+	cursor: pointer;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+}
+
+.button:hover {
+	animation-name: up;
+	animation-duration: 0.5s;
+	animation-fill-mode: forwards;
+}
+.button:active {
+	animation-name: down;
+	animation-duration: 0.5s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes up {
+	from {
+		transform: translateY(0px);
+		box-shadow: black 0 0;
+	}
+	to {
+		transform: translateY(-8px);
+		box-shadow: black 0 8px;
+	}
+}
+
+@keyframes down {
+	from {
+		transform: translateY(-8px);
+		box-shadow: black 0 8px;
+	}
+	to {
+		transform: translateY(8px);
+		box-shadow: black 0 -4px;
+	}
+}
