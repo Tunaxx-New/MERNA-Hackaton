@@ -3,8 +3,43 @@ const UserRole = require("../Schemas/UserRole.relation");
 const WorkDay = require("../Schemas/WorkTime.model");
 const menuModel = require("../Schemas/Products.model");
 const Order = require("../Schemas/Orders.model");
+const Product = require("../Schemas/Products.model");
 
 module.exports = function(app) {
+
+    const isCashier = async function(req, res, next) {
+        if (req.isAuthenticated()) {
+            let role = await UserRole.find({user_id: req.user._id})
+            let cashier = false
+            role.forEach(function(item) {
+                if (item.role === 'admin' || item.role === 'cashier')
+                    cashier = true
+            });
+
+            if (cashier) {
+                next()
+            }
+            else {
+                res.sendStatus(400)
+            }
+        }
+        else {
+            res.sendStatus(400)
+        }
+    }
+
+    app.post('/qr/:id', (req, res) => {
+        console.log(1)
+        User.findById(req.params.id, async (item, err) => {
+            if (err) {
+                res.json(err)
+            }
+            else {
+                res.json(item)
+            }
+        });
+    })
+
     app.get('/cashier', async (req, res) => {
         let user = await User.find({})
         let userRole = await UserRole.find({user_id: user._id})

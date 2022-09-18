@@ -49,6 +49,7 @@ require('./routes/auth')(app)
 require('./routes/admin')(app)
 require('./routes/cashier')(app)
 require('./routes/getters')(app)
+require('./routes/order')(app)
 
 
 

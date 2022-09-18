@@ -2,8 +2,6 @@ const Product = require("../Schemas/Products.model");
 const User = require("../Schemas/Users.model");
 const UserRole = require("../Schemas/UserRole.relation");
 
-const passport = require('passport');
-
 module.exports = function(app) {
 
     app.post('/role', async (req, res) => {

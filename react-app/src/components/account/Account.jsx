@@ -16,6 +16,7 @@ const Account = () => {
     useEffect(() => {
         axios.post('http://localhost:3001/role', {}, {withCredentials: true})
             .then((res) => {
+                console.log(res)
                 if (res.data === 'notauth') {
                     navigate('/profile/sign-in');
                 }
@@ -23,7 +24,7 @@ const Account = () => {
                     setRole(res.data);
                 }
             })
-            .catch((err) => console.log(err));
+            .catch((err) => {navigate('/profile/sign-in');});
     }, []);
 
     return (
